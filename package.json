@@ -1,0 +1,46 @@
+{
+  "name": "codepen",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.8.1",
+    "@codemirror/lang-html": "^6.4.5",
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/lang-less": "^6.0.1",
+    "@uiw/codemirror-theme-androidstudio": "^4.21.7",
+    "@uiw/codemirror-theme-darcula": "^4.21.7",
+    "@uiw/codemirror-theme-dracula": "^4.21.7",
+    "@uiw/codemirror-theme-eclipse": "^4.21.7",
+    "@uiw/codemirror-theme-github": "^4.21.7",
+    "@uiw/codemirror-theme-material": "^4.21.7",
+    "@uiw/codemirror-theme-sublime": "^4.21.7",
+    "@uiw/codemirror-theme-vscode": "^4.21.7",
+    "codemirror": "^6.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-split": "^2.0.14"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^9.8.8",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.4.26",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0"
+  }
+}
