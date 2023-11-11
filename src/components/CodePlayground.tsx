@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import ReactCodeMirror from '@uiw/react-codemirror'
 import { Extension } from '@codemirror/state'
 import { LanguageSupport } from '@codemirror/language'

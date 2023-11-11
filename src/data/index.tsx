@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Extension } from '@codemirror/state'
 import { sublime } from '@uiw/codemirror-theme-sublime'
 import { dracula } from '@uiw/codemirror-theme-dracula'
@@ -6,6 +7,44 @@ import { vscodeDark } from '@uiw/codemirror-theme-vscode'
 import { androidstudio } from '@uiw/codemirror-theme-androidstudio'
 import { githubDark, githubLight } from '@uiw/codemirror-theme-github'
 import { material, materialDark, materialLight } from '@uiw/codemirror-theme-material'
+
+export const htmlStarterCode: string = `<a 
+  target="_blank"
+  href="https://github.com/nikhilVaravadekar15/Codepen"
+  >
+  Github / Codepen
+</a>
+`
+
+export const cssStarterCode: string = `@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-synthesis: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  a {
+    letter-spacing: 4px;
+    text-transform: none;
+    text-decoration: none;
+  }
+`
+export const jsStarterCode: string = `// open browser console to view logs
+console.log("hello world");
+`
 
 export const fonts: Array<{ name: string, value: number }> = [
     {

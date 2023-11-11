@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import {
     AiFillSetting
 } from "react-icons/ai";
@@ -55,17 +52,17 @@ function SettingsDialog() {
                     className="text-slate-50"
                 />
             </DialogTrigger>
-            <DialogContent className="text-white flex flex-col bg-[#060606] h-[60%]">
+            <DialogContent className="max-w-xl h-[32rem] text-white flex flex-col bg-[#060606]">
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-bold">Settings</DialogTitle>
                 </DialogHeader>
 
                 <Tabs defaultValue="html" className="w-full h-full">
-                    <TabsList className="w-full flex justify-evenly bg-transparent">
-                        <TabsTrigger value="html">HTML</TabsTrigger>
-                        <TabsTrigger value="css">CSS</TabsTrigger>
-                        <TabsTrigger value="js">Javascript</TabsTrigger>
-                        <TabsTrigger value="editor">Editor</TabsTrigger>
+                    <TabsList className="w-full flex justify-evenly bg-slate-900">
+                        <TabsTrigger className="w-full" value="html">HTML</TabsTrigger>
+                        <TabsTrigger className="w-full" value="css">CSS</TabsTrigger>
+                        <TabsTrigger className="w-full" value="js">Javascript</TabsTrigger>
+                        <TabsTrigger className="w-full" value="editor">Editor</TabsTrigger>
                     </TabsList>
                     <>
                         <TabsContent value="html" className="flex flex-col gap-4">

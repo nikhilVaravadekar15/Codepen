@@ -1,40 +1,36 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-inferrable-types */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import './App.css'
 import {
   DiHtml5,
   DiCssTricks,
   DiJavascript1
 } from 'react-icons/di'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Split from 'react-split'
 import Header from './components/Header'
 import { useSelector } from 'react-redux'
+import { THeadSlice } from './redux/slices/headSlice'
+import CodePlayground from './components/CodePlayground'
 import { css as cssCodemirror } from '@codemirror/lang-css'
 import { html as htmlCodemirror } from '@codemirror/lang-html'
-import { javascript as jsCodemirror } from '@codemirror/lang-javascript'
-import CodePlayground from './components/CodePlayground'
-import { THeadSlice } from './redux/slices/headSlice'
 import { TFontSizeSlice } from './redux/slices/fontSizeSlice'
 import { TThemeSlice, getTheme } from './redux/slices/themeSlice'
 import { THtmlClassesSlice } from './redux/slices/htmlClassesSlice'
 import { TStyleSheetsSlice } from './redux/slices/styleSheetsSlice'
+import { javascript as jsCodemirror } from '@codemirror/lang-javascript'
 import { TExternalScriptsSlice } from './redux/slices/externalScriptsSlice'
+import { htmlStarterCode, cssStarterCode, jsStarterCode } from './data/index'
 
 
 function App() {
 
-  const [css, setCss] = React.useState<string>("")
-  const [html, setHtml] = React.useState<string>("")
-  const [js, setJs] = React.useState<string>("")
   const [srcDoc, setSrcDoc] = React.useState<string>("")
+  const [js, setJs] = React.useState<string>(jsStarterCode)
+  const [css, setCss] = React.useState<string>(cssStarterCode)
+  const [html, setHtml] = React.useState<string>(htmlStarterCode)
 
   const theme = useSelector<TThemeSlice>(state => state?.themeSlice?.theme)
   const fontsize = useSelector<TFontSizeSlice>(state => state?.fontSizeSlice?.fontsize)
@@ -43,7 +39,7 @@ function App() {
   const styleSheets = useSelector<TStyleSheetsSlice>(state => state?.styleSheetsSlice?.styleSheets)
   const externalScripts = useSelector<TExternalScriptsSlice>(state => state?.externalScriptsSlice?.externalScripts)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const unloadCallback = (event: any) => {
       event.preventDefault();
       event.returnValue = "";
@@ -54,21 +50,27 @@ function App() {
     return () => window.removeEventListener("beforeunload", unloadCallback);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const outputTimeout = setTimeout(() => {
       setSrcDoc(`
-          <!DOCTYPE html>
-          <html class="${htmlClasses as string}">
-            <head>
-              ${head as string}
-              ${styleSheets as string}
-              <style>${css}</style>
-            </head>
-            <body>${html as string}</body>
-            ${externalScripts as string}
-            <script>${js}</script>
-          </html>
-        `)
+      <!DOCTYPE html>
+        <html class="${htmlClasses as string}">
+          <head>
+            ${head as string}
+            ${styleSheets as string}
+            <style>
+              ${css}
+            </style>
+          </head>
+          <body>
+            ${html as string}
+          </body>
+          ${externalScripts as string}
+          <script>
+            ${js}
+          </script>
+        </html>
+      `)
     }, 250);
 
     return () => {
@@ -79,7 +81,7 @@ function App() {
   return (
     <main className="h-screen w-screen flex flex-col overflow-hidden">
       <div className="h-14 bg-[#060606]">
-        <Header />
+        <Header doc={srcDoc} />
       </div>
       <Split
         minSize={0}
